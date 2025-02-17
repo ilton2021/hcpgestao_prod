@@ -1,0 +1,90 @@
+.container {
+  padding-top: 10px;
+}
+.cards {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  border-radius: 20px;
+  text-align: center;
+  color: #111;
+  max-width: 300px;
+}
+.card_ {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  border-radius: 20px;
+  text-align: center;
+  color: #111;
+  max-width: 800px;
+  background-color: aliceblue;
+  margin-top: -160px;
+  margin-left: 350px;  
+}
+
+.card_ p{
+  padding: 5px;
+}
+.card p{
+  padding: 5px;
+}
+.image {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  overflow: hidden;
+  position: relative;
+}
+.image img {
+  width: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+.image2 {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  overflow: hidden;
+  position: relative;
+  opacity: 0.25;
+}
+.image2 img {
+  width: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+.card_rp3 {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  border-radius: 20px;
+  text-align: center;
+  color: #111;
+  background-color: aliceblue;
+}
+.image3 {
+  width: 15%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
