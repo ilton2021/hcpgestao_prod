@@ -316,4 +316,56 @@ class AssistencialController extends Controller
 		$input = $request->all();
 		return redirect()->route('cadastroRA', $id_unidade)->withErrors($validator);
 	}
+
+	public function telaAnoRA($id_unidade, Request $request)
+	{
+		$unidades 	  = Unidade::where('status_unidades',1)->get();
+		$unidade 	  = Unidade::where('status_unidades',1)->find($id_unidade);
+		$unidadesMenu = Unidade::where('status_unidades',1)->get();
+		$anosRef	  = Assistencial::where('ano_ref', 0)->get();
+		$lastUpdated = $anosRef->max('updated_at');
+		return view('transparencia/assistencial/assistencial_novo_ano', compact('unidade', 'unidades', 'unidadesMenu', 'anosRef', 'lastUpdated'));
+		
+	}
+
+	public function novoAnoRA($id_unidade, Request $request)
+	{
+		$input = $request->all();
+		$validacao	  = permissaoUsersController::Permissao($id_unidade);
+		$unidades	  = Unidade::where('status_unidades',1)->get();
+		$unidade 	  = Unidade::where('status_unidades',1)->find($id_unidade);
+		$unidadesMenu = Unidade::where('status_unidades',1)->get();
+		
+		$anosRef = Assistencial::where('ano_ref', 2024)->where('status_assistencials', 1)->where('unidade_id',$id_unidade)->get();
+		$qtd = sizeof($anosRef);
+		$ano_futuro = date('Y', strtotime('now'));
+		
+		for ($a = 0; $a < $qtd; $a++) 
+		{ 
+			$input['descricao']    = $anosRef[$a]->descricao; 
+			$input['indicador_id'] = $anosRef[$a]->indicador_id;
+			$input['tipolinha']    = $anosRef[$a]->tipolinha;
+			$input['meta'] 		   = '';
+			$input['janeiro']      = '';
+			$input['fevereiro']    = '';
+			$input['marco']        = '';
+			$input['abril']        = '';
+			$input['maio']         = '';
+			$input['junho']        = '';
+			$input['julho']        = '';
+			$input['agosto']       = '';
+			$input['setembro']     = '';
+			$input['outubro']      = '';
+			$input['novembro']     = '';
+			$input['dezembro']     = '';
+			$input['unidade_id']   = $id_unidade;
+			$input['ano_ref']      = $ano_futuro;
+			$input['status_assistencials'] = 1;
+			
+			$anosRef2 = Assistencial::create($input);  
+ 		}	
+		
+		$validator = 'Cadastrado com sucesso!';
+		return redirect()->route('cadastroRA', $id_unidade)->withErrors($validator);
+	}
 }

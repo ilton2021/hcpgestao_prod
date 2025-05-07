@@ -89,6 +89,9 @@
             <div class="p-2">
                 <a class="btn btn-dark btn-sm" style="color: #FFFFFF;" href="{{route('novoRA', $unidade->id)}}"> <b>Novo</b> <i class="fas fa-check"></i> </a></li>
             </div>
+            <div class="p-2">
+                <a class="btn btn-primary btn-sm" style="color: #FFFFFF;" href="{{route('telaAnoRA', $unidade->id)}}"> <b>Novo Ano</b> <i class="fas fa-check"></i> </a></li>
+            </div>
         </div>
         <div class="d-flex m-2 justify-content-sm-start justify-content-lg-center justify-content-md-center" style="overflow:auto;">
             @foreach($anosRef as $year)

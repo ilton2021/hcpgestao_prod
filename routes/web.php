@@ -568,6 +568,8 @@ Route::middleware(['auth'])->group( function() {
 		Route::get('assistencial/{id}/assistencialCadastro', [App\Http\Controllers\AssistencialController::class, 'cadastroRA'])->name('cadastroRA');
 		Route::get('assistencial/{id}/assistencialCadastro/assistencialNovo', [App\Http\Controllers\AssistencialController::class, 'novoRA'])->name('novoRA');
 		Route::post('assistencial/{id}/assistencialCadastro/assistencialNovo', [App\Http\Controllers\AssistencialController::class, 'storeRA'])->name('storeRA');
+		Route::get('assistencial/{id}/assistencialCadastro/assistencialNovo/novo_ano', [App\Http\Controllers\AssistencialController::class, 'telaAnoRA'])->name('telaAnoRA');
+		Route::post('assistencial/{id}/assistencialCadastro/assistencialNovo/novo_ano', [App\Http\Controllers\AssistencialController::class, 'novoAnoRA'])->name('novoAnoRA');
 		Route::post('assistencial/{id}/assistencialCadastro/assistencialNovo/{id_escolha}', [App\Http\Controllers\AssistencialController::class, 'storeRA'])->name('storeRA');
 		Route::get('assistencial/{id}/assistencialCadastro/assistencialAlterar/{id_item}', [App\Http\Controllers\AssistencialController::class, 'alterarRA'])->name('alterarRA');
 		Route::post('assistencial/{id}/assistencialCadastro/assistencialAlterar/{id_item}', [App\Http\Controllers\AssistencialController::class, 'updateRA'])->name('updateRA');
